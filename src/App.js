@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import UserInventory from "./components/UserInventory";
+import AdminInventory from "./components/AdminInventory";
+import HomePage from "./components/HomePage";
+import NavBar from "./components/Navbar";
+import "antd/dist/reset.css";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <NavBar />
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/user-inventory" element={<UserInventory />} />
+      <Route path="/admin-inventory" element={<AdminInventory />} />
+      <Route path="/" element={<HomePage />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
